@@ -52,24 +52,7 @@ public class bg extends World
             for(int i=0;i<5;i++){
                 int obstacle_x=Greenfoot.getRandomNumber(getWidth()-10);
                 int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
-                //now checking if there is something underneath
-                /*if(getObjectsAt(obstacle_x,obstacle_y,Boy.class).isEmpty() && 
-                    getObjectsAt(obstacle_x+40,obstacle_y,Boy.class).isEmpty() && 
-                    getObjectsAt(obstacle_x,obstacle_y+40,Boy.class).isEmpty() && 
-                    getObjectsAt(obstacle_x-40,obstacle_y,Boy.class).isEmpty() && 
-                    getObjectsAt(obstacle_x,obstacle_y-40,Boy.class).isEmpty() &&
-                    getObjectsAt(obstacle_x+40,obstacle_y+40,Boy.class).isEmpty() && 
-                    getObjectsAt(obstacle_x-40,obstacle_y-40,Boy.class).isEmpty() &&
-                    getObjectsAt(obstacle_x+40,obstacle_y-40,Boy.class).isEmpty() &&
-                    getObjectsAt(obstacle_x-40,obstacle_y+40,Boy.class).isEmpty() &&
-                    getObjectsAt(obstacle_x,obstacle_y,Ambulance.class).isEmpty() && 
-                    getObjectsAt(obstacle_x+50,obstacle_y,Ambulance.class).isEmpty() && 
-                    getObjectsAt(obstacle_x,obstacle_y+50,Ambulance.class).isEmpty() && 
-                    getObjectsAt(obstacle_x-50,obstacle_y,Ambulance.class).isEmpty() && 
-                    getObjectsAt(obstacle_x,obstacle_y-50,Ambulance.class).isEmpty() )*/
-                        addObject(new Hospital(), obstacle_x, obstacle_y);
-                /*else
-                        i--;*/
+                addObject(new Hospital(), obstacle_x, obstacle_y);
             }
         }
         try{
