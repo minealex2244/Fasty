@@ -5,7 +5,7 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 
 **PURPOSE OF PROJECT**: Just for fun :)
 
-**VERSION**: 2.2.0 
+**VERSION**: 2.3.0 
 
 **AUTHOR**: Pop Alexandru Radu *** Get support here: minealex2244@gmail.com
 
