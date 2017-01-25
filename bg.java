@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * @Pop Alexandru Radu & @Petric Ovidiu Vasiliu
- * @2.2.0
+ * @2.3.0
  */
 public class bg extends World
 {
