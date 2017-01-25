@@ -235,10 +235,14 @@ public class Ambulance extends Actor
             System.out.println("Can't find 'res.txt'!");
         }
         getWorld().showText("Level/saved/total " + level + "/" + saved_people + "/" + people,200,100);
-        if(level>=30)
-        for(int i=0;i<5;i++)
+        if(level>=30 && level!=35)
+            for(int i=0;i<5;i++)
+            {
+                addObject(new Hospital(), Greenfoot.getRandomNumber(getWidth()-10), Greenfoot.getRandomNumber(getHeight()-10));
+            }
+        else
         {
-            addObject(new Hospital(), Greenfoot.getRandomNumber(getWidth()-10), Greenfoot.getRandomNumber(getHeight()-10));
+            //TODO
         }
     }
 }
