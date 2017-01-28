@@ -95,6 +95,7 @@ public class Ambulance extends Actor
     }  
     private void score() {
         saved_people++;
+        getWorld().showText("Level/saved/total " + level + "/" + saved_people + "/" + people,200,100);
         //...just a delimiter
         if(level==11) //I'm a notification :)
         {
@@ -193,17 +194,17 @@ public class Ambulance extends Actor
                 if(level==10)
                 {
                     System.out.println("***Wow! I shall stop you because you're too good at this game. I put a lot of obstacles ;)");
-                    System.out.println("You know what? This is really hard for everyone (except me :D), I'll give you a new chance from 10 to 10 levels. Use it wisely with 'E'.");
+                    System.out.println(" You know what? This is really hard for everyone (except me :D), I'll give you a new chance from 10 to 10 levels. Use it wisely with 'E'.");
                     Greenfoot.stop();
                 }
                 if(level==15)
                 {
-                    System.out.println("Oh my God! You're still playing this game? I bet you can't reach level 25.");
+                    System.out.println("***Oh my God! You're still playing this game? I bet you can't reach level 25.");
                     Greenfoot.stop();
                 }
                 if(level==30)
                 {
-                    System.out.println("Now I made this game harder");
+                    System.out.println("***Now I made this game harder.");
                     Greenfoot.stop();
                 }
                 //The END of notifications
@@ -234,15 +235,6 @@ public class Ambulance extends Actor
         catch(IOException ioe2){
             System.out.println("Can't find 'res.txt'!");
         }
-        getWorld().showText("Level/saved/total " + level + "/" + saved_people + "/" + people,200,100);
-        if(level>=30 && level!=35)
-            for(int i=0;i<5;i++)
-            {
-                addObject(new Hospital(), Greenfoot.getRandomNumber(getWidth()-10), Greenfoot.getRandomNumber(getHeight()-10));
-            }
-        else
-        {
-            //TODO
-        }
+        getWorld().showText("Level/saved " + level + "/" + saved_people,200,100);
     }
 }
