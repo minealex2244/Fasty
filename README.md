@@ -101,3 +101,4 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 **v2.3.0**
 
 -added a boss ;) 
+-bug fixes
