@@ -6,14 +6,19 @@ import java.awt.*;
 
 public class Ambulance extends Actor 
 {
-    int secret=0,saved_people=0,people=0,level=0,level2,time_power=0,time_power_used=0,lives=0,new_chance=0,won=0,ok=1,ok2=1;
+    int secret=0,saved_people=0,people=0,level=0,level2,time_power=0,time_power_used=0,lives=0,new_chance=0,won=0,ok=1,ok2=1,boss_life=3;
     private int time = 720; //default is 720 for 12 seconds, for debug porposes change to 1200 for 20 seconds
     public void act()
     {
         if (time>0 && won==0)
         {
-            time--;
-            getWorld().showText(Integer.toString(time/60),100,120); //showing the time left
+            if(level!=35)
+            {
+                time--;
+                getWorld().showText(Integer.toString(time/60),100,120); //showing the time left
+            }
+            else
+                getWorld().showText("Boss: " + boss_life, 700,100);
             if(time == 0)
                 getWorld().showText("You lost! Press 'Reset' to try again.",400,300); //centered text
             if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")){
@@ -87,15 +92,46 @@ public class Ambulance extends Actor
                 removeTouching(Boy.class);
                 score();
             }
+            if(isTouching(Hospital_boss.class))
+            {
+                boss_life--;
+                setLocation(150,300);
+                if(boss_life==0){
+                    getWorld().showText("Boss: " + boss_life, 700,100);
+                    boss_defeat();
+                    Greenfoot.stop();
+                }
+            }
         }
         else if(lives==0)
                 Greenfoot.stop();
         else
             Greenfoot.stop();
-    }  
+    }
+    private void boss_defeat() {
+        getWorld().showText("You won the game! You can play it in continue if you want :)", 400,300);
+        File res_file = new File("res.txt");
+        try{
+            FileInputStream in = new FileInputStream(res_file);
+            Properties prop = new Properties();
+            prop.load(in);
+            in.close();
+
+            FileOutputStream out = new FileOutputStream(res_file);
+            level++;
+            String level_string = Integer.toString(level);
+            prop.setProperty("level", level_string);
+            prop.store(out, null);
+            out.close();
+        }
+        catch(IOException ioe2){
+            System.out.println("Can't find 'res.txt'!");
+        }
+    }
     private void score() {
         saved_people++;
-        getWorld().showText("Level/saved/total " + level + "/" + saved_people + "/" + people,200,100);
+        if(level!=35)
+            getWorld().showText("Level/saved/total " + level + "/" + saved_people + "/" + people,200,100);
         //...just a delimiter
         if(level==11) //I'm a notification :)
         {
@@ -227,14 +263,27 @@ public class Ambulance extends Actor
             in.close();
 
             FileOutputStream out = new FileOutputStream(res_file);
-            level = Integer.parseInt(prop.getProperty("level"));
-            people = Integer.parseInt(prop.getProperty("people")); //getting the value of people_string from res.txt (original value from bg.java)
+            try{
+                level = Integer.parseInt(prop.getProperty("level"));
+                people = Integer.parseInt(prop.getProperty("people")); //getting the value of people_string from res.txt (original value from bg.java)
+            }
+            catch(NumberFormatException nfe)
+            {
+                System.out.println("Please delete \"res.txt\".");
+            }
             prop.store(out, null);
             out.close();
         }
         catch(IOException ioe2){
             System.out.println("Can't find 'res.txt'!");
         }
-        getWorld().showText("Level/saved " + level + "/" + saved_people,200,100);
+        if(level==35)
+        {
+            setLocation(150,300);
+            getWorld().addObject(new Hospital_boss(),800,300);
+            getWorld().showText("Boss: " + boss_life, 700,100);
+        }
+        else
+            getWorld().showText("Level/saved " + level + "/" + saved_people,200,100);
     }
 }
