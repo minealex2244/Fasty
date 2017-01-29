@@ -61,6 +61,11 @@ public class bg extends World
                 int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
                 addObject(new Hospital(), obstacle_x, obstacle_y);
             }
+        if(player_level==35)
+        {
+            removeObjects(getObjects(Hospital.class));
+            removeObjects(getObjects(Boy.class));
+        }
         try{
             prop.setProperty("username", username); //comment this if it doesn't compile (NullPointerException) in case of deleted res.txt (location is where README.TXT is) then re-enable after a successful compilation
         }
