@@ -48,35 +48,27 @@ public class bg extends World
         FileOutputStream out = new FileOutputStream(res_file);
         prop.setProperty("people", people_string); //optimization to get this value between classes (bg.java and Ambulance.java)
         player_level=Integer.parseInt(prop.getProperty("level"));
-        
-        if(player_level!=35){
-        
-            if(player_level>=10){
-                for(int i=0;i<5;i++){
-                    int obstacle_x=Greenfoot.getRandomNumber(getWidth()-10);
-                    int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
-                    addObject(new Hospital(), obstacle_x, obstacle_y);
-                }
+        if(player_level>=10){
+            for(int i=0;i<5;i++){
+                int obstacle_x=Greenfoot.getRandomNumber(getWidth()-10);
+                int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
+                addObject(new Hospital(), obstacle_x, obstacle_y);
             }
-            if(player_level>=30)
-                for(int i=0;i<5;i++){
-                    int obstacle_x=Greenfoot.getRandomNumber(getWidth()-10);
-                    int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
-                    addObject(new Hospital(), obstacle_x, obstacle_y);
-                }
-                try{
-                    prop.setProperty("username", username); //comment this if it doesn't compile (NullPointerException) in case of deleted res.txt (location is where README.TXT is) then re-enable after a successful compilation
-                }
-                catch(NullPointerException npe){
-                    username="Player";
-                    prop.setProperty("username", username); //this too
-                }
-                prop.store(out, null);
-                out.close();
-            }
-        else
-        {
-            
         }
-    }
+        if(player_level>=30)
+            for(int i=0;i<5;i++){
+                int obstacle_x=Greenfoot.getRandomNumber(getWidth()-10);
+                int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
+                addObject(new Hospital(), obstacle_x, obstacle_y);
+            }
+        try{
+            prop.setProperty("username", username); //comment this if it doesn't compile (NullPointerException) in case of deleted res.txt (location is where README.TXT is) then re-enable after a successful compilation
+        }
+        catch(NullPointerException npe){
+            username="Player";
+            prop.setProperty("username", username); //this too
+        }
+        prop.store(out, null);
+        out.close();
+       }
 }
