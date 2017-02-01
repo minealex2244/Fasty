@@ -4,7 +4,10 @@ public class Hospital extends Actor
 {
     public void act() 
     {
-        // TODO
+        if(isAtEdge())
+        {
+            getWorld().removeObject(this);
+        }
     }   
     public void addedToWorld(World w)
     {
