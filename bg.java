@@ -55,12 +55,13 @@ public class bg extends World
                 addObject(new Hospital(), obstacle_x, obstacle_y);
             }
         }
-        if(player_level>=30)
+        if(player_level>=30){
             for(int i=0;i<5;i++){
                 int obstacle_x=Greenfoot.getRandomNumber(getWidth()-10);
                 int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
                 addObject(new Hospital(), obstacle_x, obstacle_y);
             }
+        }
         if(player_level==35)
         {
             removeObjects(getObjects(Hospital.class));
