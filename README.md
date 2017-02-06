@@ -5,7 +5,7 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 
 **PURPOSE OF PROJECT**: Just for fun :)
 
-**VERSION**: 2.3.0 
+**VERSION**: 3.0.0 
 
 **AUTHOR**: Pop Alexandru Radu *** Get support here: minealex2244@gmail.com
 
@@ -17,32 +17,32 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 
 **MOVEMENT**: Arrows or WASD, P-pause, Q-use bonus time, E-use bonus life.
 
-**CREDITS**: stackoverflow.com for an optimised properties loading and writing, a friend for giving me the idea to add a story ;)
+**CREDITS**: www.stackoverflow.com for an optimised properties loading and writing, www.freesound.org, a friend for giving me the idea to add a story ;)
 
 
 **---CHANGELOG---** 
 
-**pre 1.0**
+**pre 1.0** 
 
 -initial game tests
 
-**v1.0**
+**v1.0** 
 
 -made the game to be functional (to collect the boys)
 
-**v1.1**
+**v1.1** 
 
 -possibility to see the saved boys
 
-**v1.2**
+**v1.2** 
 
 -minor improvements of code
 
-**v1.3**
+**v1.3** 
 
 -optimised the code (added properties management)
 
-**v1.4**
+**v1.4** 
 
 -added levels
 -added timer
@@ -50,55 +50,63 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 -added Game Over screen
 -a lot of code and speed improvements
 
-**v1.5**
+**v1.5** 
 
 -added WASD controls
 -bugfixes for Game Over screen
 -fixed the NullPointerException caused by Greenfoot
 -other improvements
 
-**v1.6**
+**v1.6** 
 
 -added the power to add max. 3 seconds (bonus gained from 10 to 10 levels)
 -removed useless code lines
 -fixed a bug which makes the level to show "0" and after you won it shows the real level
 
-**v1.7**
+**v1.7** 
 
 -all the strings are now translated in English
 -added obstacles
 
-**v1.8**
+**v1.8** 
 
 -fixed obstacle-related bugs (also related to boys)
 -fixed a bug which spawns the player right into the obstacle
 
-**v2.0.0**
+**v2.0.0** 
 
 -new versioning (the last "0" is only for minor bugfixes releases)
 -a new chance when hitting the buildings ;) 
 -fixed a bug which lets you continue the game even if you won
 -using Greenfoot Terminal to notify the user
 
-**v2.0.1**
+**v2.0.1** 
 
 -fixed the no information bug (now, only needs to load)
 
-**v2.0.2**
+**v2.0.2** 
 
 -hopefully fixed the object-in-building bug (building over building is NORMAL)
 
-**v2.1.1**
+**v2.1.1** 
 
 -changing the game after level 150 ;)
 
-**v2.2.0**
+**v2.2.0** 
 
 -fixed no info bug at start forever 
 -lowered levels 
 -added expert mode after level 30 (10 buildings instead of 5) 
 
-**v2.3.0**
+**v2.3.0** 
 
 -added a boss ;) 
--bug fixes
+-bug fixes 
+
+**v3.0.0** 
+
+-added sounds 
+-lowered levels again 
+-now you need to enter your username only once 
+-increasing difficulty instead of random difficulty 
+-bugfixes 
