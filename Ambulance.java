@@ -16,7 +16,7 @@ public class Ambulance extends Actor
             if(level!=20)
             {
                 time--;
-                getWorld().showText(Integer.toString(time/60),100,120); //showing the time left
+                getWorld().showText(Integer.toString(time/60),50,30); //showing the time left
             }
             else
                 getWorld().showText("Boss: " + boss_life, 700,100);
@@ -138,7 +138,7 @@ public class Ambulance extends Actor
     private void score() {
         saved_people++;
         if(level!=20)
-            getWorld().showText("Level/saved/total " + level + "/" + saved_people + "/" + people,200,100);
+            getWorld().showText("Level/saved/total " + level + "/" + saved_people + "/" + people,125,10);
         //...just a delimiter
         if(level==11 && saved_people==1) //I'm a notification :)
         {
@@ -302,6 +302,6 @@ public class Ambulance extends Actor
             getWorld().showText("Boss: " + boss_life, 700,100);
         }
         else
-            getWorld().showText("Level/saved " + level + "/" + saved_people,200,100);
+            getWorld().showText("Level/saved " + level + "/" + saved_people,125,10);
     }
 }

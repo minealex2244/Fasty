@@ -41,7 +41,7 @@ public class bg extends World
 
         FileOutputStream out = new FileOutputStream(res_file);
         String username = prop.getProperty("username");
-        showText(username,100,220);
+        showText(username,400,10);
         player_level=Integer.parseInt(prop.getProperty("level"));
         int people=10+player_level;
         if(people>30)
