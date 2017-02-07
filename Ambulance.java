@@ -115,7 +115,9 @@ public class Ambulance extends Actor
             Greenfoot.stop();
     }
     private void boss_defeat() {
-        getWorld().showText("You won the game! You can play it in continue if you want :)", 400,300);
+        setRotation(0);
+        setLocation(400,300);
+        setImage(new GreenfootImage("You won the game! You can play it in continue if you want :)", 25, Color.GREEN, Color.BLACK));
         Greenfoot.playSound("level_success.mp3");
         File res_file = new File("res.txt");
         try{
