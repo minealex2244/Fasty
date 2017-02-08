@@ -13,11 +13,11 @@ public class bg extends World
         super(900, 650, 1); 
         addObject(new Ambulance(), Greenfoot.getRandomNumber(getWidth()-10), Greenfoot.getRandomNumber(getHeight()-10));
         int player_level;
-        File res_file = new File("res.txt"); //it can be changed to another file name
+        File res_file = new File("res.txt"); //It can be changed to another file name
         try{
             FileInputStream in = new FileInputStream(res_file);
         }
-        //search for res.txt, if not found we create a default one
+        //Search for res.txt. If not found we create a default one
         catch(IOException ioe){
             res_file.createNewFile();
             FileInputStream in = new FileInputStream(res_file);
@@ -33,7 +33,7 @@ public class bg extends World
             prop.store(out, null);
             out.close();
         }
-        //load the available res.txt
+        //Load the available res.txt data
         FileInputStream in = new FileInputStream(res_file);
         Properties prop = new Properties();
         prop.load(in);
@@ -43,40 +43,43 @@ public class bg extends World
         String username = prop.getProperty("username");
         showText(username,400,10);
         player_level=Integer.parseInt(prop.getProperty("level"));
-        int people=10+player_level;
+        int people=10+player_level; //We'll slowly increase the difficulty -> 10 minimum people plus level
         if(people>30)
         {
-            people=30;
+            people=30; //Trying to collect 9.000.000 people will result in an OutOfMemoryException :)
         }
         String people_string=Integer.toString(people);
         for(int i=0;i<people;i++)
             addObject(new Boy(), Greenfoot.getRandomNumber(getWidth()-10), Greenfoot.getRandomNumber(getHeight()-10));
-        prop.setProperty("people", people_string); //optimization to get this value between classes (bg.java and Ambulance.java)
-        if(player_level>=5){
+        prop.setProperty("people", people_string); //This property will let Ambulance.java know how many people we need to save
+        if(player_level>=5) //Adding 3 buildings
+        {
             for(int i=0;i<3;i++){
                 int obstacle_x=Greenfoot.getRandomNumber(getWidth()-10);
                 int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
                 addObject(new Hospital(), obstacle_x, obstacle_y);
             }
         }
-        if(player_level>=10){
+        if(player_level>=10) //Adding 2 more buildings than normal
+        {
             for(int i=0;i<2;i++){
                 int obstacle_x=Greenfoot.getRandomNumber(getWidth()-10);
                 int obstacle_y=Greenfoot.getRandomNumber(getHeight()-10);
                 addObject(new Hospital(), obstacle_x, obstacle_y);
             }
         }
-        if(player_level==20)
+        if(player_level==20) //This is the boss level
         {
             removeObjects(getObjects(Hospital.class));
             removeObjects(getObjects(Boy.class));
         }
-        try{
-            prop.setProperty("username", username); //comment this if it doesn't compile (NullPointerException) in case of deleted res.txt (location is where README.TXT is) then re-enable after a successful compilation
+        try //This will help us if our res.txt file gets deleted or corrupted
+        {
+            prop.setProperty("username", username); 
         }
         catch(NullPointerException npe){
             username="Player";
-            prop.setProperty("username", username); //this too
+            prop.setProperty("username", username);
         }
         prop.store(out, null);
         out.close();

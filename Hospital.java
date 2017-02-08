@@ -4,14 +4,14 @@ public class Hospital extends Actor
 {
     public void act() 
     {
-        if(isAtEdge())
+        if(isAtEdge()) //Used in boss level
         {
             getWorld().removeObject(this);
         }
     }   
     public void addedToWorld(World w)
     {
-        //preventing from spawning on top of another object except for another building
+        //Preventing from spawning on top of another object except for another building
         while(isTouching(Boy.class) || isTouching(Ambulance.class))
         {
             int x=Greenfoot.getRandomNumber(getWorld().getWidth()-10);

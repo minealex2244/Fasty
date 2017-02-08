@@ -7,7 +7,7 @@ import java.awt.*;
 public class Ambulance extends Actor 
 {
     int secret=0,saved_people=0,people=0,level=0,level2,time_power=0,time_power_used=0,lives=0,new_chance=0,won=0,ok=1,ok2=1,boss_life=3;
-    private int time = 900; //default is 900 for 15 seconds, for debug porposes change to 1200 for 20 seconds
+    private int time = 900; //Default is 900 for 15 seconds, but for debug porposes change to 1200 for 20 seconds
     String username;
     public void act()
     {
@@ -16,12 +16,12 @@ public class Ambulance extends Actor
             if(level!=20)
             {
                 time--;
-                getWorld().showText(Integer.toString(time/60),50,30); //showing the time left
+                getWorld().showText(Integer.toString(time/60),50,30); //Showing the time left
             }
             else
                 getWorld().showText("Boss: " + boss_life, 700,100);
             if(time == 0){
-                getWorld().showText("You lost! Press 'Reset' to try again.",400,300); //centered text
+                getWorld().showText("You lost! Press 'Reset' to try again.",400,300); //Centered text
                 Greenfoot.playSound("level_fail.mp3");
             }
             if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")){
@@ -66,16 +66,18 @@ public class Ambulance extends Actor
             }
             if(Greenfoot.isKeyDown("p"))
                 Greenfoot.stop();
-            if(Greenfoot.isKeyDown("q")){
+            if(Greenfoot.isKeyDown("q")) //Time power key
+            {
                 time_power_used=1;
                 Greenfoot.playSound("power_used.mp3");
             }
-            if(Greenfoot.isKeyDown("e"))
+            if(Greenfoot.isKeyDown("e")) //New chance
             {
                 new_chance=1;
                 Greenfoot.playSound("power_used.mp3");
             }
-            if(Greenfoot.isKeyDown("l") && secret==1){
+            if(Greenfoot.isKeyDown("l") && secret==1) //The secret key ;)
+            {
                 if(ok==1){
                     saved_people++;
                     ok=0;
@@ -85,7 +87,7 @@ public class Ambulance extends Actor
             {
                 if(lives==0)
                 {
-                    getWorld().showText("You crashed in the building! Press 'Reset' and try again.",400,300); //centered text
+                    getWorld().showText("You crashed in the building! Press 'Reset' and try again.",400,300); //Centered text
                     Greenfoot.playSound("level_fail.mp3");
                     time=0;
                 }
@@ -141,7 +143,7 @@ public class Ambulance extends Actor
         saved_people++;
         if(level!=20)
             getWorld().showText("Level/saved/total " + level + "/" + saved_people + "/" + people,125,10);
-        //...just a delimiter
+        //...Just a delimiter
         if(level==11 && saved_people==1) //I'm a notification :)
         {
             System.out.println("*******************************************************************************");
@@ -189,7 +191,7 @@ public class Ambulance extends Actor
                 Greenfoot.stop();
             }
         }
-        //and another one
+        //...and another one
         File res_file = new File("res.txt");
         try{
             FileInputStream in = new FileInputStream(res_file);
@@ -214,9 +216,9 @@ public class Ambulance extends Actor
                 time_power=0;
             }
             level = Integer.parseInt(prop.getProperty("level"));
-            people = Integer.parseInt(prop.getProperty("people")); //getting the value of people_string from res.txt (original value from bg.java)
+            people = Integer.parseInt(prop.getProperty("people")); //Getting the value of people_string from res.txt (original value from bg.java)
             if(saved_people>=people){
-                getWorld().showText("You won! Press 'Reset' for next level.",400,300); //centered text
+                getWorld().showText("You won! Press 'Reset' for next level.",400,300); //Centered text
                 Greenfoot.playSound("level_success.mp3");
                 level++;
                 String level_string = Integer.toString(level);
@@ -224,13 +226,13 @@ public class Ambulance extends Actor
                 if(level%5==0 && level!=0)
                 {
                     time_power=Greenfoot.getRandomNumber(120)+60;
-                    getWorld().showText("You got a bonus of " + time_power/60 + " seconds.",400,350); //below center
+                    getWorld().showText("You got a bonus of " + time_power/60 + " seconds.",400,350); //Below center
                     String time_power_string = Integer.toString(time_power);
                     prop.setProperty("time_power", time_power_string);
                 }
                 if(level%5==0 && level>=10)
                 {
-                    getWorld().showText("You got a new bonus chance.",400,375); //below center
+                    getWorld().showText("You got a new bonus chance.",400,375); //Below center
                     prop.setProperty("lives", "1");
                 }
                 //The BEGINNING of notifications
@@ -264,13 +266,13 @@ public class Ambulance extends Actor
             out.close();
         }
         catch(IOException ioe2){
-            System.out.println("Can't find 'res.txt'!");
+            System.out.println("Error: Can't find 'res.txt'!");
         }
     }
     public void addedToWorld(World w)
     {
         File res_file = new File("res.txt");
-        try{ //reading and parsing res.txt
+        try{ //Reading res.txt
             FileInputStream in = new FileInputStream(res_file);
             Properties prop = new Properties();
             prop.load(in);
@@ -279,7 +281,7 @@ public class Ambulance extends Actor
             FileOutputStream out = new FileOutputStream(res_file);
             try{
                 level = Integer.parseInt(prop.getProperty("level"));
-                people = Integer.parseInt(prop.getProperty("people")); //getting the value of people_string from res.txt (original value from bg.java)
+                people = Integer.parseInt(prop.getProperty("people")); //Getting the value of people_string from res.txt (original value from bg.java)
                 username = prop.getProperty("username");
                 if(username.equals("Player"))
                 {
@@ -297,7 +299,7 @@ public class Ambulance extends Actor
         catch(IOException ioe2){
             System.out.println("Warning: Can't find 'res.txt'! Another one will be created.");
         }
-        if(level==20)
+        if(level==20) //Preparing for boss level
         {
             setLocation(150,300);
             getWorld().addObject(new Hospital_boss(),800,300);
