@@ -87,7 +87,9 @@ public class Ambulance extends Actor
             {
                 if(lives==0)
                 {
-                    getWorld().showText("You crashed in the building! Press 'Reset' and try again.",400,300); //Centered text
+                    setRotation(0);
+                    setLocation(400,300);
+                    setImage(new GreenfootImage("You crashed in the building! Press 'Reset' and try again.", 25, Color.RED, Color.BLACK));
                     Greenfoot.playSound("level_fail.mp3");
                     time=0;
                 }
@@ -218,7 +220,9 @@ public class Ambulance extends Actor
             level = Integer.parseInt(prop.getProperty("level"));
             people = Integer.parseInt(prop.getProperty("people")); //Getting the value of people_string from res.txt (original value from bg.java)
             if(saved_people>=people){
-                getWorld().showText("You won! Press 'Reset' for next level.",400,300); //Centered text
+                setRotation(0);
+                setLocation(400,300);
+                setImage(new GreenfootImage("You won! Press 'Reset' for next level.", 25, Color.GREEN, Color.BLACK));
                 Greenfoot.playSound("level_success.mp3");
                 level++;
                 String level_string = Integer.toString(level);
