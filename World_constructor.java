@@ -6,9 +6,9 @@ import java.util.*;
  * @Pop Alexandru Radu & @Petric Ovidiu Vasiliu
  * @3.1.0
  */
-public class bg extends World
+public class World_constructor extends World
 {
-    public bg()throws Exception
+    public World_constructor()throws Exception
     {    
         super(900, 600, 1); 
         int y = Greenfoot.getRandomNumber(getHeight()+50);
