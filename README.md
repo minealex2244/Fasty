@@ -11,7 +11,7 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 
 **CONTRIBUTORS**: Petric Ovidiu Vasiliu
 
-**HOW TO START THIS PROJECT**: Double-click on "project.greenfoot" and then 'Run'. IF ANY EXCEPTION OCCURS: Just delete res.txt file, run the project again and optionally click 'Reset' to input your name. This method will erase your data.
+**HOW TO START THIS PROJECT**: Double-click on "project.greenfoot" and then 'Run'.
 
 **USER INSTRUCTIONS**: Radu has just got a new job: ambulance driver. But this is not as simple as it sounds. How fast are you to save the people? Please read README_RULES.TXT for more informations.
 
