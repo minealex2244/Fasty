@@ -4,14 +4,18 @@ import java.util.*;
 
 /**
  * @Pop Alexandru Radu & @Petric Ovidiu Vasiliu
- * @3.0.0
+ * @3.1.0
  */
 public class bg extends World
 {
     public bg()throws Exception
     {    
         super(900, 600, 1); 
-        addObject(new Ambulance(), Greenfoot.getRandomNumber(getWidth()-10), Greenfoot.getRandomNumber(getHeight()-10));
+        int y = Greenfoot.getRandomNumber(getHeight()+50);
+        if(y>590)
+            y-=100;
+        addObject(new Ambulance(), Greenfoot.getRandomNumber(getWidth()-10), y);
+        addObject(new Statusbar(), getWidth()/2, 25/2);
         int player_level;
         File res_file = new File("res.txt"); //It can be changed to another file name
         try{
@@ -49,8 +53,12 @@ public class bg extends World
             people=30; //Trying to collect 9.000.000 people will result in an OutOfMemoryException :)
         }
         String people_string=Integer.toString(people);
-        for(int i=0;i<people;i++)
-            addObject(new Boy(), Greenfoot.getRandomNumber(getWidth()-10), Greenfoot.getRandomNumber(getHeight()-10));
+        for(int i=0;i<people;i++){
+            y = Greenfoot.getRandomNumber(getHeight()-10);
+            if(y<50)
+                y=100;
+            addObject(new Boy(), Greenfoot.getRandomNumber(getWidth()-10), y);
+        }
         prop.setProperty("people", people_string); //This property will let Ambulance.java know how many people we need to save
         if(player_level>=5) //Adding 3 buildings
         {

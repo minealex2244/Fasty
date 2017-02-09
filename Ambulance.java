@@ -2,7 +2,6 @@ import greenfoot.*;
 import java.*;
 import java.io.*;
 import java.util.*;
-import java.awt.*;
 
 public class Ambulance extends Actor 
 {
@@ -16,7 +15,7 @@ public class Ambulance extends Actor
             if(level!=20)
             {
                 time--;
-                getWorld().showText(Integer.toString(time/60),50,30); //Showing the time left
+                getWorld().showText(Integer.toString(time/60),600,10); //Showing the time
             }
             else
                 getWorld().showText("Boss: " + boss_life, 700,100);
@@ -101,6 +100,11 @@ public class Ambulance extends Actor
             if(isTouching(Boy.class)){
                 removeTouching(Boy.class);
                 score();
+            }
+            if(isTouching(Statusbar.class))
+            {
+                if(level==20)
+                    setLocation(150,300);
             }
             if(isTouching(Hospital_boss.class))
             {

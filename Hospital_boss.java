@@ -26,5 +26,7 @@ public class Hospital_boss extends Actor
         {
             getWorld().addObject(new Hospital(),775,getY());
         }
+        if(isTouching(Statusbar.class))
+            setLocation(getX(),300);
     }    
 }

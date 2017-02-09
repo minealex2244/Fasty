@@ -5,7 +5,7 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 
 **PURPOSE OF PROJECT**: Just for fun :)
 
-**VERSION**: 3.0.0 
+**VERSION**: 3.1.0 
 
 **AUTHOR**: Pop Alexandru Radu *** Get support here: minealex2244@gmail.com
 
@@ -109,4 +109,9 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 -lowered levels again 
 -now you need to enter your username only once 
 -increasing difficulty instead of random difficulty 
+-bugfixes 
+
+**v3.1.0** 
+
+-added a statusbar 
 -bugfixes 
