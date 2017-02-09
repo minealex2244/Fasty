@@ -10,7 +10,7 @@ public class bg extends World
 {
     public bg()throws Exception
     {    
-        super(900, 650, 1); 
+        super(900, 600, 1); 
         addObject(new Ambulance(), Greenfoot.getRandomNumber(getWidth()-10), Greenfoot.getRandomNumber(getHeight()-10));
         int player_level;
         File res_file = new File("res.txt"); //It can be changed to another file name
