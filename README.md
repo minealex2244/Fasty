@@ -5,7 +5,7 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 
 **PURPOSE OF PROJECT**: Just for fun :)
 
-**VERSION**: 3.1.0 
+**VERSION**: 3.1.1 
 
 **AUTHOR**: Pop Alexandru Radu *** Get support here: minealex2244@gmail.com
 
@@ -114,4 +114,9 @@ This is my first game made in Greenfoot. It is born from testing of my knownledg
 **v3.1.0** 
 
 -added a statusbar 
+-bugfixes 
+
+**v3.1.1** 
+
+-renamed bg to World_constructor 
 -bugfixes 
