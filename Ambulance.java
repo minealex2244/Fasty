@@ -2,6 +2,7 @@ import greenfoot.*;
 import java.*;
 import java.io.*;
 import java.util.*;
+import java.awt.*;
 
 public class Ambulance extends Actor 
 {
@@ -20,7 +21,11 @@ public class Ambulance extends Actor
             else
                 getWorld().showText("Boss: " + boss_life, 700,100);
             if(time == 0){
-                getWorld().showText("You lost! Press 'Reset' to try again.",400,300); //Centered text
+                setRotation(0);
+                setLocation(400,300);
+                getWorld().removeObjects(getWorld().getObjects(Hospital.class));
+                getWorld().removeObjects(getWorld().getObjects(Boy.class));
+                setImage(new GreenfootImage("You lost! Press 'Reset' to try again.", 25, Color.GREEN, Color.BLACK));
                 Greenfoot.playSound("level_fail.mp3");
             }
             if(Greenfoot.isKeyDown("left") || Greenfoot.isKeyDown("a")){
@@ -88,6 +93,8 @@ public class Ambulance extends Actor
                 {
                     setRotation(0);
                     setLocation(400,300);
+                    getWorld().removeObjects(getWorld().getObjects(Hospital.class));
+                    getWorld().removeObjects(getWorld().getObjects(Boy.class));
                     setImage(new GreenfootImage("You crashed in the building! Press 'Reset' and try again.", 25, Color.RED, Color.BLACK));
                     Greenfoot.playSound("level_fail.mp3");
                     time=0;
@@ -125,6 +132,7 @@ public class Ambulance extends Actor
     private void boss_defeat() {
         setRotation(0);
         setLocation(400,300);
+        getWorld().removeObjects(getWorld().getObjects(Hospital.class));
         setImage(new GreenfootImage("You won the game! You can play it in continue if you want :)", 25, Color.GREEN, Color.BLACK));
         Greenfoot.playSound("level_success.mp3");
         File res_file = new File("res.txt");
@@ -226,6 +234,7 @@ public class Ambulance extends Actor
             if(saved_people>=people){
                 setRotation(0);
                 setLocation(400,300);
+                getWorld().removeObjects(getWorld().getObjects(Hospital.class));
                 setImage(new GreenfootImage("You won! Press 'Reset' for next level.", 25, Color.GREEN, Color.BLACK));
                 Greenfoot.playSound("level_success.mp3");
                 level++;
