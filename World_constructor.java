@@ -12,7 +12,7 @@ public class World_constructor extends World
     {    
         super(900, 600, 1); 
         int y = Greenfoot.getRandomNumber(getHeight()+50);
-        if(y<50)
+        if(y<75)
             y=200;
         addObject(new Ambulance(), Greenfoot.getRandomNumber(getWidth()-10), y);
         addObject(new Statusbar(), getWidth()/2, 25/2);
